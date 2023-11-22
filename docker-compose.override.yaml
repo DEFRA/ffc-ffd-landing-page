@@ -2,14 +2,14 @@
 # to provide dependencies and expose ports for local testing
 
 services:
-  ffc-template-node:
+  ffc-ffd-landing-page:
     build:
       target: development
-    image: ffc-template-node-development
-    container_name: ffc-template-node-development
+    image: ffc-ffd-landing-page-development
+    container_name: ffc-ffd-landing-page-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "3001:3001"
+      - "9001:9229"
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
