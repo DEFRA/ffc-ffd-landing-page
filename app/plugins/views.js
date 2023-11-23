@@ -34,8 +34,6 @@ module.exports = {
     isCached: !serverConfig.isDev,
     context: {
       appVersion: version,
-      assetPath: '/static',
-      govukAssetPath: '/assets',
       serviceName: serverConfig.serviceName,
       pageTitle: `${serverConfig.serviceName} - GOV.UK`
     }

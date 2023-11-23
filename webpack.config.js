@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { DEVELOPMENT, TEST, PRODUCTION } = require('./app/constants/environments')
 
+const routePrefix = process.env.ROUTE_PREFIX || '/landing-page'
+
 const isDev = process.env.NODE_ENV === DEVELOPMENT || process.env.NODE_ENV === TEST
 
 console.log(`Running webpack in ${isDev ? DEVELOPMENT : PRODUCTION} mode`)
@@ -60,6 +62,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[fullhash].js',
     path: path.resolve(__dirname, 'app/dist'),
+    publicPath: `${routePrefix}/assets/`,
     library: '[name]'
   },
   plugins: [
@@ -68,7 +71,10 @@ module.exports = {
       inject: false,
       filename: '../views/_layout.njk',
       template: 'app/views/_layout.template.njk',
-      chunks: ['core']
+      chunks: ['core'],
+      metadata: {
+        routePrefix
+      }
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[fullhash].css'
