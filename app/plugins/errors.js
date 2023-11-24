@@ -1,3 +1,5 @@
+const { serverConfig } = require('../config')
+
 module.exports = {
   plugin: {
     name: 'error-pages',
@@ -9,7 +11,7 @@ module.exports = {
           const statusCode = response.output.statusCode
 
           if (statusCode === 401) {
-            return h.redirect('/auth/sign-in').code(statusCode)
+            return h.redirect(`${serverConfig.publicGatewayHost}/auth/sign-in`)
           }
 
           if (statusCode === 403) {
