@@ -1,7 +1,7 @@
 const Wreck = require('@hapi/wreck')
 const { serverConfig } = require('../config')
 
-const validateToken = async (decoded, request, _h) => {
+const validateToken = async (decoded, _request, _h) => {
   const { payload } = await Wreck.post(`${serverConfig.privateGatewayHost}/auth/validate`, {
     payload: {
       token: decoded
