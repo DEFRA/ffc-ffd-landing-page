@@ -4,17 +4,9 @@
 metadata:
   annotations:
     nginx.org/mergeable-ingress-type: minion
-    nginx.ingress.kubernetes.io/server-snippet: |
-      location / {
-        return 301 https://{{ .Values.workstream }}.{{ .Values.ingress.server }}{{ .Values.ingress.path }}$request_uri;
-      }
 {{- else -}}
 metadata:
   annotations:
-    nginx.ingress.kubernetes.io/server-snippet: |
-      location / {
-        return 301 https://{{ .Values.name }}-{{ .Values.pr }}.{{ .Values.ingress.server }}{{ .Values.ingress.path }}$request_uri;
-      }
 spec:
   rules:
   - host: {{ .Values.name }}-{{ .Values.pr }}.{{ .Values.ingress.server }}
