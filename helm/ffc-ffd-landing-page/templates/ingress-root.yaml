@@ -1,11 +1,11 @@
-{{- include "ffc-helm-library.azure-ingress" (list . "ffc-ffd-landing-page.ingress") -}}
-{{- define "ffc-ffd-landing-page.ingress" -}}
+{{- include "ffc-helm-library.azure-ingress" (list . "ffc-ffd-landing-page.ingress-root") -}}
+{{- define "ffc-ffd-landing-page.ingress-root" -}}
 {{- if not .Values.pr -}}
 metadata:
   name: {{ .Values.name }}-root
   annotations:
     nginx.org/mergeable-ingress-type: minion
-    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.ingress.path}}
+    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.ingress.path }}
 spec:
   rules:
   - host: {{ .Values.workstream }}.{{ .Values.ingress.server }}
