@@ -8,6 +8,18 @@ metadata:
       location / {
         return 301 https://{{ .Values.workstream }}.{{ .Values.ingress.server }}{{ .Values.ingress.path }}$request_uri;
       }
+spec:
+  rules:
+  - host: {{ .Values.workstream }}.{{ .Values.ingress.server }}
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: {{ .Values.service.port }}
 {{- else -}}
 metadata:
   annotations:
@@ -21,6 +33,13 @@ spec:
     http:
       paths:
       - path: {{ .Values.ingress.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: {{ .Values.service.port }}
+      - path: "/"
         pathType: Prefix
         backend:
           service:
