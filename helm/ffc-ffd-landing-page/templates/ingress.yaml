@@ -19,7 +19,7 @@ spec:
           service:
             name: {{ .Values.name }}
             port:
-              number: {{ .Values.container.port }}
+              number: 80
 {{- else -}}
 metadata:
   annotations:
