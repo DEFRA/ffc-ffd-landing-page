@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.name }}-root
   annotations:
     nginx.org/mergeable-ingress-type: minion
-    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.ingress.path }}
+    nginx.org/rewrites: "serviceName={{ .Values.name }} rewrite={{ .Values.ingress.path }}"
 spec:
   rules:
   - host: {{ .Values.workstream }}.{{ .Values.ingress.server }}
