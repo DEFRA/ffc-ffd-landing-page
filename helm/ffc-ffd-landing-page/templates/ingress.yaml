@@ -19,7 +19,7 @@ spec:
           service:
             name: {{ .Values.name }}
             port:
-              number: {{ .Values.service.port }}
+              number: {{ .Values.container.port }}
 {{- else -}}
 metadata:
   annotations:
@@ -38,13 +38,13 @@ spec:
           service:
             name: {{ .Values.name }}
             port:
-              number: {{ .Values.service.port }}
+              number: {{ .Values.container.port }}
       - path: "/"
         pathType: Prefix
         backend:
           service:
             name: {{ .Values.name }}
             port:
-              number: {{ .Values.service.port }}
+              number: {{ .Values.container.port }}
 {{- end -}}
 {{- end -}}
