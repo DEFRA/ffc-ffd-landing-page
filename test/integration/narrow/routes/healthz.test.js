@@ -1,4 +1,4 @@
-const { createServer } = require('../../../../app/server')
+import { createServer } from '../../../../app/server'
 
 let server
 

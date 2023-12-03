@@ -1,8 +1,8 @@
-const { mapAuth } = require('./map-auth')
-const { getPublicKey } = require('./get-public-key')
-const { validateToken } = require('./validate-token')
+import { mapAuth } from './map-auth.js'
+import { getPublicKey } from './get-public-key.js'
+import { validateToken } from './validate-token.js'
 
-module.exports = {
+export {
   mapAuth,
   getPublicKey,
   validateToken

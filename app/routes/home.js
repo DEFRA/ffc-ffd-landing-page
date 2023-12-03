@@ -1,11 +1,14 @@
-const { GET } = require('../constants/http-verbs')
-const { USER } = require('../auth/scopes')
+import verbs from '../constants/http-verbs.js'
+import scopes from '../auth/scopes.js'
 
-module.exports = [{
+const { GET } = verbs
+const { USER } = scopes
+
+export default {
   method: GET,
   path: '/home',
   options: { auth: { strategy: 'jwt', scope: [USER] } },
   handler: (_request, h) => {
     return h.view('home')
   }
-}]
+}

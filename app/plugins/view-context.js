@@ -1,6 +1,6 @@
-const { mapAuth } = require('../auth')
+import { mapAuth } from '../auth'
 
-module.exports = {
+const plugin = {
   plugin: {
     name: 'view-context',
     register: (server, _options) => {
@@ -14,3 +14,5 @@ module.exports = {
     }
   }
 }
+
+export default plugin

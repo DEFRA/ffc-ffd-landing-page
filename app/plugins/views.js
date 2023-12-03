@@ -1,10 +1,13 @@
-const path = require('path')
-const nunjucks = require('nunjucks')
-const { serverConfig } = require('../config')
-const { version } = require('../../package.json')
+import path from 'path'
+import { fileURLToPath } from 'url'
+import nunjucks from 'nunjucks'
+import Vision from '@hapi/vision'
+import { serverConfig } from '../config/index.js'
 
-module.exports = {
-  plugin: require('@hapi/vision'),
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const plugin = {
+  plugin: Vision,
   options: {
     engines: {
       njk: {
@@ -33,9 +36,10 @@ module.exports = {
     relativeTo: __dirname,
     isCached: !serverConfig.isDev,
     context: {
-      appVersion: version,
       serviceName: serverConfig.serviceName,
       pageTitle: `${serverConfig.serviceName} - GOV.UK`
     }
   }
 }
+
+export default plugin

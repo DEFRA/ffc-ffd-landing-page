@@ -1,16 +1,18 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { DEVELOPMENT, TEST, PRODUCTION } = require('./app/constants/environments')
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import environments from './app/constants/environments.js'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const { DEVELOPMENT, PRODUCTION, TEST } = environments
 const routePrefix = process.env.ROUTE_PREFIX || '/landing-page'
-
 const isDev = process.env.NODE_ENV === DEVELOPMENT || process.env.NODE_ENV === TEST
 
 console.log(`Running webpack in ${isDev ? DEVELOPMENT : PRODUCTION} mode`)
 
-module.exports = {
+export default {
   entry: {
     core: [
       './app/frontend/css/index.js'

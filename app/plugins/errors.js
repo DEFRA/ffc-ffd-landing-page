@@ -1,6 +1,6 @@
-const { serverConfig } = require('../config')
+import { serverConfig } from '../config/index.js'
 
-module.exports = {
+const plugin = {
   plugin: {
     name: 'error-pages',
     register: (server, options) => {
@@ -35,3 +35,5 @@ module.exports = {
     }
   }
 }
+
+export default plugin

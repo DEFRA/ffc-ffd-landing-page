@@ -1,8 +1,11 @@
-const { getPublicKey, validateToken } = require('../auth')
-const { RS256 } = require('../constants/algorithms')
-const { AUTH_COOKIE_NAME } = require('../constants/cookies')
+import { getPublicKey, validateToken } from '../auth/index.js'
+import algorithms from '../constants/algorithms.js'
+import cookies from '../constants/cookies.js'
 
-module.exports = {
+const { RS256 } = algorithms
+const { AUTH_COOKIE_NAME } = cookies
+
+const plugin = {
   plugin: {
     name: 'auth',
     register: async (server, _options) => {
@@ -16,3 +19,5 @@ module.exports = {
     }
   }
 }
+
+export default plugin
