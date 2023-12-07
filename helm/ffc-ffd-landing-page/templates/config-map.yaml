@@ -4,6 +4,6 @@ data:
   NODE_ENV: {{ quote .Values.environment }}
   PORT: {{ quote .Values.container.port }}
   APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
-  PRIVATE_GATEWAY_HOST: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
-  PUBLIC_GATEWAY_HOST: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
+  AUTH_HOST: https://{{ .Values.ingress.authHost }}.{{ .Values.ingress.server }}
+  GATEWAY_HOST: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
 {{- end -}}
