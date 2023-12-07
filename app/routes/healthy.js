@@ -1,7 +1,10 @@
-const { GET } = require('../constants/http-verbs')
-const { OK } = require('../constants/ok')
+import verbs from '../constants/http-verbs.js'
+import ok from '../constants/ok.js'
 
-module.exports = {
+const { GET } = verbs
+const { OK } = ok
+
+const route = {
   method: GET,
   path: '/healthy',
   options: {
@@ -11,3 +14,5 @@ module.exports = {
     return h.response(OK).code(200)
   }
 }
+
+export default route

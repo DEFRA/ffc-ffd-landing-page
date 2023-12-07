@@ -1,13 +1,15 @@
-const Joi = require('joi')
-const { DEVELOPMENT, TEST, PRODUCTION } = require('../constants/environments')
+import Joi from 'joi'
+import environments from '../constants/environments.js'
+
+const { DEVELOPMENT, TEST, PRODUCTION } = environments
 
 const schema = Joi.object().keys({
   port: Joi.number().default(3001),
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
   serviceName: Joi.string().default('Farming Front Door'),
   routePrefix: Joi.string().default('/landing-page'),
-  privateGatewayHost: Joi.string().required(),
-  publicGatewayHost: Joi.string().required()
+  authHost: Joi.string().required(),
+  gatewayHost: Joi.string().required()
 })
 
 const config = {
@@ -15,8 +17,8 @@ const config = {
   env: process.env.NODE_ENV,
   serviceName: process.env.SERVICE_NAME,
   routePrefix: process.env.ROUTE_PREFIX,
-  privateGatewayHost: process.env.PRIVATE_GATEWAY_HOST,
-  publicGatewayHost: process.env.PUBLIC_GATEWAY_HOST
+  authHost: process.env.AUTH_HOST,
+  gatewayHost: process.env.GATEWAY_HOST
 }
 
 const { error, value } = schema.validate(config)
@@ -27,4 +29,4 @@ if (error) {
 
 value.isDev = value.env === DEVELOPMENT
 
-module.exports = value
+export default value

@@ -1,5 +1,3 @@
-const serverConfig = require('./server')
+import serverConfig from './server.js'
 
-module.exports = {
-  serverConfig
-}
+export { serverConfig }

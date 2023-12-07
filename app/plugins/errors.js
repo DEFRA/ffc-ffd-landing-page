@@ -1,6 +1,6 @@
-const { serverConfig } = require('../config')
+import { serverConfig } from '../config/index.js'
 
-module.exports = {
+const plugin = {
   plugin: {
     name: 'error-pages',
     register: (server, options) => {
@@ -11,7 +11,7 @@ module.exports = {
           const statusCode = response.output.statusCode
 
           if (statusCode === 401) {
-            return h.redirect(`${serverConfig.publicGatewayHost}/auth/sign-in?redirect=${request.url.pathname}`)
+            return h.redirect(`${serverConfig.gatewayHost}/auth/sign-in?redirect=${request.url.pathname}`)
           }
 
           if (statusCode === 403) {
@@ -35,3 +35,5 @@ module.exports = {
     }
   }
 }
+
+export default plugin

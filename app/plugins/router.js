@@ -1,12 +1,18 @@
+import healthy from '../routes/healthy.js'
+import healthz from '../routes/healthz.js'
+import assets from '../routes/assets.js'
+import index from '../routes/index.js'
+import home from '../routes/home.js'
+
 const routes = [].concat(
-  require('../routes/healthy'),
-  require('../routes/healthz'),
-  require('../routes/assets'),
-  require('../routes/'),
-  require('../routes/home')
+  healthy,
+  healthz,
+  assets,
+  index,
+  home
 )
 
-module.exports = {
+const plugin = {
   plugin: {
     name: 'router',
     register: (server, options) => {
@@ -14,3 +20,5 @@ module.exports = {
     }
   }
 }
+
+export default plugin

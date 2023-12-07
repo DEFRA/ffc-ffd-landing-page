@@ -1,6 +1,6 @@
-require('./insights').setup()
-require('log-timestamp')
-const { createServer } = require('./server')
+import { setup } from './insights.js'
+import 'log-timestamp'
+import { createServer } from './server.js'
 
 const init = async () => {
   const server = await createServer()
@@ -13,4 +13,5 @@ process.on('unhandledRejection', (err) => {
   process.exit(1)
 })
 
+setup()
 init()

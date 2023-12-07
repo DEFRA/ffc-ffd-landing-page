@@ -1,5 +1,7 @@
-const { isInRole } = require('./is-in-role')
-const { USER } = require('./scopes')
+import scopes from './scopes.js'
+import { isInRole } from './is-in-role.js'
+
+const { USER } = scopes
 
 const mapAuth = (request) => {
   return {
@@ -10,6 +12,4 @@ const mapAuth = (request) => {
   }
 }
 
-module.exports = {
-  mapAuth
-}
+export { mapAuth }

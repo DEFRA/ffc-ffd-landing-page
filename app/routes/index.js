@@ -1,6 +1,8 @@
-const { GET } = require('../constants/http-verbs')
+import verbs from '../constants/http-verbs.js'
 
-module.exports = {
+const { GET } = verbs
+
+const route = {
   method: GET,
   path: '/',
   options: {
@@ -10,3 +12,5 @@ module.exports = {
     return h.view('index')
   }
 }
+
+export default route

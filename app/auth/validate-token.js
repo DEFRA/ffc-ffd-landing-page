@@ -1,8 +1,8 @@
-const Wreck = require('@hapi/wreck')
-const { serverConfig } = require('../config')
+import Wreck from '@hapi/wreck'
+import { serverConfig } from '../config/index.js'
 
 const validateToken = async (decoded, _request, _h) => {
-  const { payload } = await Wreck.post(`${serverConfig.privateGatewayHost}/auth/validate`, {
+  const { payload } = await Wreck.post(`${serverConfig.authHost}/auth/validate`, {
     payload: {
       token: decoded
     },
@@ -11,6 +11,4 @@ const validateToken = async (decoded, _request, _h) => {
   return payload
 }
 
-module.exports = {
-  validateToken
-}
+export { validateToken }
