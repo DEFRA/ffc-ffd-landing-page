@@ -8,5 +8,5 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-ffd-landing-page-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
-      PRIVATE_GATEWAY_HOST: ${PRIVATE_GATEWAY_HOST:-http://ffc-ffd-proxy:3000}
-      PUBLIC_GATEWAY_HOST: ${PUBLIC_GATEWAY_HOST:-http://localhost:3000}
+      AUTH_HOST: ${AUTH_HOST:-http://ffc-ffd-proxy:3000}
+      GATEWAY_HOST: ${GATEWAY_HOST:-http://localhost:3000}
