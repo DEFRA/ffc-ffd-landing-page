@@ -1,4 +1,4 @@
-const { getPublicKey, validateToken } = require('../auth')
+const { getPublicKey, validateToken } = require('ffc-auth')
 const { RS256 } = require('../constants/algorithms')
 const { AUTH_COOKIE_NAME } = require('../constants/cookies')
 

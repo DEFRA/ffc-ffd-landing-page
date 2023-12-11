@@ -1,4 +1,4 @@
-const { mapAuth } = require('../auth')
+const { mapAuth } = require('ffc-auth')
 
 module.exports = {
   plugin: {
