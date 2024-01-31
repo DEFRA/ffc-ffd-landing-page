@@ -50,7 +50,7 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          {#Foreach around this bit for each business#} 
+          arr.forEach((Business.id) => {
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">{{Business.name}}</th>
             <td class="govuk-table__cell">{{Business.sbi}}</td>
@@ -58,6 +58,7 @@
               <a href="/business" class="govuk-link">View business hub</a>
             </td>
           </tr>
+          )}
         </tbody>
       </table>
     </div>
