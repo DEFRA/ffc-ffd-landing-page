@@ -1,12 +1,12 @@
 const { GET } = require('../constants/http-verbs')
 
 module.exports = {
-  method: 'GET',
+  method: GET,
   path: '/',
-  config: {
-    tags: ['graphql'],
-    handler: (request, h) => {
-      return h.response({Business.id}).code(200)
-    }
+  options: {
+    auth: false
+  },
+  handler: (request, h) => {
+    return h.view('index')
   }
 }
