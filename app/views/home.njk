@@ -50,27 +50,15 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+          {% for business in customerBusinesses.businesses %}
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Hill Farm</th>
-            <td class="govuk-table__cell">106863349</td>
+            <th scope="row" class="govuk-table__header">{{business.name}}</th>
+            <td class="govuk-table__cell">{{business.sbi}}</td>
             <td class="govuk-table__cell">
               <a href="/business" class="govuk-link">View business hub</a>
             </td>
           </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Valley Farm</th>
-            <td class="govuk-table__cell">192846125</td>
-            <td class="govuk-table__cell">
-              <a href="#" class="govuk-link">View business hub</a>
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">DM Jones & Partners</th>
-            <td class="govuk-table__cell">202736410</td>
-            <td class="govuk-table__cell">
-              <a href="#" class="govuk-link">View business hub</a>
-            </td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
