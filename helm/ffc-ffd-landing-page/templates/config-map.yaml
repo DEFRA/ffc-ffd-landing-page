@@ -6,4 +6,5 @@ data:
   APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
   AUTH_HOST: http://{{ .Values.container.authHost }}.{{ .Values.namespace }}
   GATEWAY_HOST: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
+  DATA_HOST: http://{{ .Values.container.dataHost }}.{{ .Values.namespace }}
 {{- end -}}

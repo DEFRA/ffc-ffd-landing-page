@@ -50,15 +50,15 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          arr.forEach((Business.id) => {
+          {% for business in customerBusinesses.businesses %}
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">{{Business.name}}</th>
-            <td class="govuk-table__cell">{{Business.sbi}}</td>
+            <th scope="row" class="govuk-table__header">{{business.name}}</th>
+            <td class="govuk-table__cell">{{business.sbi}}</td>
             <td class="govuk-table__cell">
               <a href="/business" class="govuk-link">View business hub</a>
             </td>
           </tr>
-          )}
+          {% endfor %}
         </tbody>
       </table>
     </div>

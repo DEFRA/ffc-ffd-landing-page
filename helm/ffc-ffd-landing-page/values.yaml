@@ -34,6 +34,7 @@ container:
   limitCpu: 100m
   port: 3001
   authHost: ffc-ffd-auth
+  dataHost: ffc-ffd-data
 
 livenessProbe:
   path: /landing-page/healthz
