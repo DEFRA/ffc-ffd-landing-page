@@ -29,7 +29,6 @@ module.exports = [{
       payload: JSON.stringify({ query }),
       json: true
     })
-    console.log(payload)
     return h.view('home', { customerBusinesses: payload.data.customerBusinesses })
   }
 }]
